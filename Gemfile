@@ -10,12 +10,19 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
+gem 'active_model_serializers'
+
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-gem 'spring',        group: :development
+group :development do
+  gem 'spring'        
+end
 
 group :development, :test do
+  gem 'pry'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'fabrication'
+  gem 'faker'
 end
