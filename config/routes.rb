@@ -5,8 +5,10 @@ Rails.application.routes.draw do
     delete '/api/logout' => 'sessions#destroy'
   end
 
+  
   namespace :api do
-    resources :edges, only: [ :index ]
+    resources :categories, only: [ :index ]
+    resources :edges, only: [ :index, :create ]
     resources :users, only: [ :index ]
   end  
 end
