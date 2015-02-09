@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
- namespace :api do
-  resources :edges, only: [ :index ]
- end  
+  devise_for :users, skip: [ :sessions ]
+  as :user do
+    post '/api/login' => 'sessions#create'
+    delete '/api/logout' => 'sessions#destroy'
+  end
+
+  namespace :api do
+    resources :edges, only: [ :index ]
+    resources :users, only: [ :index ]
+  end  
 end
